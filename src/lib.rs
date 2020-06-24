@@ -6,6 +6,8 @@ extern "C" {
     pub fn tree_sitter_rust() -> Language;
     pub fn tree_sitter_javascript() -> Language;
     pub fn tree_sitter_java() -> Language;
+    pub fn tree_sitter_typescript() -> Language;
+    pub fn tree_sitter_tsx() -> Language;
 }
 
 #[cfg(test)]
@@ -20,6 +22,8 @@ mod tests {
             tree_sitter_rust();
             tree_sitter_javascript();
             tree_sitter_java();
+            tree_sitter_typescript();
+            tree_sitter_tsx();
         }
     }
 }

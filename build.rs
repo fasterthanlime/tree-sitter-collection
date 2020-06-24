@@ -82,4 +82,40 @@ fn main() {
             .file(dir.join("parser.c"))
             .compile("tree-sitter-java")
     }
+
+    {
+        let dir: PathBuf = [
+            "vendor",
+            "tree-sitter-typescript-ebd10b475722d59a1fa7e4b38047e768413794fc",
+            "typescript",
+            "src",
+        ]
+        .iter()
+        .collect();
+
+        cc::Build::new()
+            .warnings(false)
+            .include(&dir)
+            .file(dir.join("parser.c"))
+            .file(dir.join("scanner.c"))
+            .compile("tree-sitter-typescript")
+    }
+
+    {
+        let dir: PathBuf = [
+            "vendor",
+            "tree-sitter-typescript-ebd10b475722d59a1fa7e4b38047e768413794fc",
+            "tsx",
+            "src",
+        ]
+        .iter()
+        .collect();
+
+        cc::Build::new()
+            .warnings(false)
+            .include(&dir)
+            .file(dir.join("parser.c"))
+            .file(dir.join("scanner.c"))
+            .compile("tree-sitter-tsx")
+    }
 }
