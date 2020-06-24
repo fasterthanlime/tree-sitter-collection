@@ -5,6 +5,7 @@ extern "C" {
     pub fn tree_sitter_c() -> Language;
     pub fn tree_sitter_rust() -> Language;
     pub fn tree_sitter_javascript() -> Language;
+    pub fn tree_sitter_java() -> Language;
 }
 
 #[cfg(test)]
@@ -18,6 +19,7 @@ mod tests {
             tree_sitter_c();
             tree_sitter_rust();
             tree_sitter_javascript();
+            tree_sitter_java();
         }
     }
 }
