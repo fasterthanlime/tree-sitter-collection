@@ -118,4 +118,21 @@ fn main() {
             .file(dir.join("scanner.c"))
             .compile("tree-sitter-tsx")
     }
+
+    {
+        let dir: PathBuf = [
+            "vendor",
+            "tree-sitter-toml-470dc1e3bc2fec32b4b8e2b6ac652181df34c338",
+            "src",
+        ]
+        .iter()
+        .collect();
+
+        cc::Build::new()
+            .warnings(false)
+            .include(&dir)
+            .file(dir.join("parser.c"))
+            .file(dir.join("scanner.c"))
+            .compile("tree-sitter-toml")
+    }
 }

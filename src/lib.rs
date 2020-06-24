@@ -8,6 +8,7 @@ extern "C" {
     pub fn tree_sitter_java() -> Language;
     pub fn tree_sitter_typescript() -> Language;
     pub fn tree_sitter_tsx() -> Language;
+    pub fn tree_sitter_toml() -> Language;
 }
 
 #[cfg(test)]
@@ -24,6 +25,7 @@ mod tests {
             tree_sitter_java();
             tree_sitter_typescript();
             tree_sitter_tsx();
+            tree_sitter_toml();
         }
     }
 }
