@@ -32,4 +32,21 @@ fn main() {
             .file(dir.join("parser.c"))
             .compile("tree-sitter-c")
     }
+
+    {
+        let dir: PathBuf = [
+            "vendor",
+            "tree-sitter-rust-40620bf4097cbc9cea79504d7e877865df43a19e",
+            "src",
+        ]
+        .iter()
+        .collect();
+
+        cc::Build::new()
+            .warnings(false)
+            .include(&dir)
+            .file(dir.join("parser.c"))
+            .file(dir.join("scanner.c"))
+            .compile("tree-sitter-rust")
+    }
 }
