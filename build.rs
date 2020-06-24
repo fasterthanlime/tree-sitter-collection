@@ -49,4 +49,21 @@ fn main() {
             .file(dir.join("scanner.c"))
             .compile("tree-sitter-rust")
     }
+
+    {
+        let dir: PathBuf = [
+            "vendor",
+            "tree-sitter-javascript-c0b6dbc5c13fc344672febe4d08cd2fcccad82d1",
+            "src",
+        ]
+        .iter()
+        .collect();
+
+        cc::Build::new()
+            .warnings(false)
+            .include(&dir)
+            .file(dir.join("parser.c"))
+            .file(dir.join("scanner.c"))
+            .compile("tree-sitter-javascript")
+    }
 }
