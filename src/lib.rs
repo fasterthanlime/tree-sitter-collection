@@ -78,7 +78,12 @@ pub fn tsx() -> Result<HighlightConfiguration, QueryError> {
 }
 
 pub fn toml() -> Result<HighlightConfiguration, QueryError> {
-    HighlightConfiguration::new(unsafe { tree_sitter_toml() }, "", "", "")
+    HighlightConfiguration::new(
+        unsafe { tree_sitter_toml() },
+        include_str!("../vendor/tree-sitter-typescript-ebd10b475722d59a1fa7e4b38047e768413794fc/queries/highlights.scm"),
+        "",
+        "",
+    )
 }
 
 #[cfg(test)]
