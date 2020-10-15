@@ -25,6 +25,6 @@ from GitHub. No, I don't want to use submodules.
 **Why not publish this / add X**
 
 Because I don't want to be maintaining yet another thing
-right onw. Sorry! But the tree-sitter docs brought you
+right now. Sorry! But the tree-sitter docs brought you
 90% there, this probably brings you 95% there, feel free to
 silently do your own spin on it, just don't open issues.
