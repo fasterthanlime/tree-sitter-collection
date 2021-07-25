@@ -86,7 +86,7 @@ fn main() {
     {
         let dir: PathBuf = [
             "vendor",
-            "tree-sitter-typescript-ebd10b475722d59a1fa7e4b38047e768413794fc",
+            "tree-sitter-typescript-fd08586b72f2ba8776d865b32aca561285c10cfd",
             "typescript",
             "src",
         ]
@@ -104,7 +104,7 @@ fn main() {
     {
         let dir: PathBuf = [
             "vendor",
-            "tree-sitter-typescript-ebd10b475722d59a1fa7e4b38047e768413794fc",
+            "tree-sitter-typescript-fd08586b72f2ba8776d865b32aca561285c10cfd",
             "tsx",
             "src",
         ]
@@ -122,7 +122,7 @@ fn main() {
     {
         let dir: PathBuf = [
             "vendor",
-            "tree-sitter-toml-e1aa4dd51bfa83fbde26565e0b80f5ed17b0bdc8",
+            "tree-sitter-toml-8bd2056818b21860e3d756b5a58c4f6e05fb744e",
             "src",
         ]
         .iter()
