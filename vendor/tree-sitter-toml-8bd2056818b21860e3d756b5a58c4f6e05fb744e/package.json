@@ -1,12 +1,12 @@
 {
   "name": "tree-sitter-toml",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "description": "TOML grammar for tree-sitter",
   "keywords": [
     "parser",
     "lexer"
   ],
-  "main": "index.js",
+  "main": "bindings/node",
   "repository": "https://github.com/ikatyang/tree-sitter-toml",
   "homepage": "https://github.com/ikatyang/tree-sitter-toml#readme",
   "author": {
@@ -37,9 +37,9 @@
   "files": [
     "/src/",
     "/queries/",
+    "/bindings/node/",
     "/binding.gyp",
-    "/grammar.js",
-    "/index.js"
+    "/grammar.js"
   ],
   "tree-sitter": [
     {

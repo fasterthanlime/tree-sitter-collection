@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.1](https://github.com/ikatyang/tree-sitter-toml/compare/v0.5.0...v0.5.1) (2021-03-21)
+
+
+### Bug Fixes
+
+* add missing binding.gyp ([5366d87](https://github.com/ikatyang/tree-sitter-toml/commit/5366d87))
+
+
+
+# [0.5.0](https://github.com/ikatyang/tree-sitter-toml/compare/v0.4.1...v0.5.0) (2021-03-14)
+
+
+### Features
+
+* upgrade to tree-sitter@0.19.3 ([e880176](https://github.com/ikatyang/tree-sitter-toml/commit/e880176))
+
+
+### BREAKING CHANGES
+
+* require tree-sitter 0.19+
+
+
+
+## [0.4.1](https://github.com/ikatyang/tree-sitter-toml/compare/v0.4.0...v0.4.1) (2020-11-14)
+
+
+### Bug Fixes
+
+* immediate hash in string is considered content instead of comment ([#18](https://github.com/ikatyang/tree-sitter-toml/issues/18)) ([4993307](https://github.com/ikatyang/tree-sitter-toml/commit/4993307))
+
+
+
 # [0.4.0](https://github.com/ikatyang/tree-sitter-toml/compare/v0.3.0...v0.4.0) (2020-07-04)
 
 
