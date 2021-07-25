@@ -44,9 +44,9 @@ pub fn rust() -> Result<HighlightConfiguration, QueryError> {
 pub fn javascript() -> Result<HighlightConfiguration, QueryError> {
     HighlightConfiguration::new(
         unsafe { tree_sitter_javascript() },
-        include_str!("../vendor/tree-sitter-javascript-c0b6dbc5c13fc344672febe4d08cd2fcccad82d1/queries/highlights.scm"),
-        include_str!("../vendor/tree-sitter-javascript-c0b6dbc5c13fc344672febe4d08cd2fcccad82d1/queries/injections.scm"),
-        include_str!("../vendor/tree-sitter-javascript-c0b6dbc5c13fc344672febe4d08cd2fcccad82d1/queries/locals.scm"),
+        include_str!("../vendor/tree-sitter-javascript-2c5b138ea488259dbf11a34595042eb261965259/queries/highlights.scm"),
+        include_str!("../vendor/tree-sitter-javascript-2c5b138ea488259dbf11a34595042eb261965259/queries/injections.scm"),
+        include_str!("../vendor/tree-sitter-javascript-2c5b138ea488259dbf11a34595042eb261965259/queries/locals.scm"),
     )
 }
 

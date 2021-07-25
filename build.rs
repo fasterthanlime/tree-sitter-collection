@@ -53,7 +53,7 @@ fn main() {
     {
         let dir: PathBuf = [
             "vendor",
-            "tree-sitter-javascript-c0b6dbc5c13fc344672febe4d08cd2fcccad82d1",
+            "tree-sitter-javascript-2c5b138ea488259dbf11a34595042eb261965259",
             "src",
         ]
         .iter()
