@@ -15,7 +15,7 @@ extern "C" {
 pub fn go() -> Result<HighlightConfiguration, QueryError> {
     HighlightConfiguration::new(
         unsafe { tree_sitter_go() },
-        include_str!("../vendor/tree-sitter-go-c03e250fe4b4021b0a0c81cf63b143371987ad40/queries/highlights.scm"),
+        include_str!("../vendor/tree-sitter-go-eb306e6e60f393df346cfc8cbfaf52667a37128a/queries/highlights.scm"),
         "",
         ""
     )
@@ -25,7 +25,7 @@ pub fn c() -> Result<HighlightConfiguration, QueryError> {
     HighlightConfiguration::new(
         unsafe { tree_sitter_c() },
         include_str!(
-            "../vendor/tree-sitter-c-99151b1e9293c9e025498fee7e6691e1a52e1d03/queries/highlights.scm"
+            "../vendor/tree-sitter-c-008008e30a81849fca0c79291e2b480855e0e02c/queries/highlights.scm"
         ),
         "",
         "",
@@ -91,14 +91,42 @@ mod tests {
     use super::*;
 
     #[test]
-    fn build_all() {
+    fn build_go() {
         go().unwrap();
+    }
+
+    #[test]
+    fn build_c() {
         c().unwrap();
+    }
+
+    #[test]
+    fn build_rust() {
         rust().unwrap();
+    }
+
+    #[test]
+    fn build_javascript() {
         javascript().unwrap();
+    }
+
+    #[test]
+    fn build_java() {
         java().unwrap();
+    }
+
+    #[test]
+    fn build_typescript() {
         typescript().unwrap();
+    }
+
+    #[test]
+    fn build_tsx() {
         tsx().unwrap();
+    }
+
+    #[test]
+    fn build_toml() {
         toml().unwrap();
     }
 }

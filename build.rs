@@ -4,7 +4,7 @@ fn main() {
     {
         let dir: PathBuf = [
             "vendor",
-            "tree-sitter-go-c03e250fe4b4021b0a0c81cf63b143371987ad40",
+            "tree-sitter-go-eb306e6e60f393df346cfc8cbfaf52667a37128a",
             "src",
         ]
         .iter()
@@ -20,7 +20,7 @@ fn main() {
     {
         let dir: PathBuf = [
             "vendor",
-            "tree-sitter-c-99151b1e9293c9e025498fee7e6691e1a52e1d03",
+            "tree-sitter-c-008008e30a81849fca0c79291e2b480855e0e02c",
             "src",
         ]
         .iter()
