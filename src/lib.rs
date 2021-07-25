@@ -35,8 +35,8 @@ pub fn c() -> Result<HighlightConfiguration, QueryError> {
 pub fn rust() -> Result<HighlightConfiguration, QueryError> {
     HighlightConfiguration::new(
         unsafe { tree_sitter_rust() },
-        include_str!("../vendor/tree-sitter-rust-40620bf4097cbc9cea79504d7e877865df43a19e/queries/highlights.scm"),
-        include_str!("../vendor/tree-sitter-rust-40620bf4097cbc9cea79504d7e877865df43a19e/queries/injections.scm"),
+        include_str!("../vendor/tree-sitter-rust-a360da0a29a19c281d08295a35ecd0544d2da211/queries/highlights.scm"),
+        include_str!("../vendor/tree-sitter-rust-a360da0a29a19c281d08295a35ecd0544d2da211/queries/injections.scm"),
         ""
     )
 }

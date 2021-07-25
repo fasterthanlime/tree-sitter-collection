@@ -1,4 +1,5 @@
 const PREC = {
+  range: 15,
   call: 14,
   field: 13,
   unary: 11,
@@ -11,7 +12,6 @@ const PREC = {
   comparative: 4,
   and: 3,
   or: 2,
-  range: 1,
   assign: 0,
   closure: -1,
 }
@@ -129,7 +129,10 @@ module.exports = grammar({
 
       return seq(
         'macro_rules!',
-        field('name', $.identifier),
+        field('name', choice(
+          $.identifier,
+          $._reserved_identifier,
+        )),
         choice(
           seq('(', rules, ')', ';'),
           seq('{', rules, '}')
@@ -190,7 +193,7 @@ module.exports = grammar({
     _non_special_token: $ => choice(
       $._literal, $.identifier, $.metavariable, $.mutable_specifier, $.self, $.super, $.crate,
       alias(choice(...primitive_types), $.primitive_type),
-      /[/_\-=->,;:::!=?.@*=/=&=#%=^=+<>|~]+/,
+      /[/_\-=->,;:::!=?.@*&#%^+<>|~]+/,
       '\'',
       'as', 'async', 'await', 'break', 'const', 'continue', 'default', 'enum', 'fn', 'for', 'if', 'impl',
       'let', 'loop', 'match', 'mod', 'pub', 'return', 'static', 'struct', 'trait', 'type',
@@ -870,13 +873,15 @@ module.exports = grammar({
       $.while_expression,
       $.while_let_expression,
       $.loop_expression,
-      $.for_expression
+      $.for_expression,
+      $.const_block
     ),
 
     macro_invocation: $ => seq(
       field('macro', choice(
         $.scoped_identifier,
-        $.identifier
+        $.identifier,
+        $._reserved_identifier,
       )),
       '!',
       $.token_tree
@@ -913,7 +918,10 @@ module.exports = grammar({
     ),
 
     range_expression: $ => prec.left(PREC.range, choice(
-      seq($._expression, choice('..', '...', '..='), $._expression),
+      prec.left(
+        PREC.range + 1,
+        seq($._expression, choice('..', '...', '..='), $._expression)
+      ),
       seq($._expression, '..'),
       seq('..', $._expression),
       '..'
@@ -1065,7 +1073,7 @@ module.exports = grammar({
       'if',
       field('condition', $._expression),
       field('consequence', $.block),
-      optional($._else_tail)
+      optional(field("alternative", $.else_clause))
     ),
 
     if_let_expression: $ => seq(
@@ -1075,16 +1083,16 @@ module.exports = grammar({
       '=',
       field('value', $._expression),
       field('consequence', $.block),
-      optional($._else_tail)
+      optional(field('alternative', $.else_clause))
     ),
 
-    _else_tail: $ => seq(
+    else_clause: $ => seq(
       'else',
-      field('alternative', choice(
+      choice(
         $.block,
         $.if_expression,
         $.if_let_expression
-      ))
+      )
     ),
 
     match_expression: $ => seq(
@@ -1157,6 +1165,11 @@ module.exports = grammar({
       field('pattern', $._pattern),
       'in',
       field('value', $._expression),
+      field('body', $.block)
+    ),
+
+    const_block: $ => seq(
+      'const',
       field('body', $.block)
     ),
 
@@ -1240,6 +1253,7 @@ module.exports = grammar({
       $.mut_pattern,
       $.range_pattern,
       $.or_pattern,
+      $.const_block,
       '_'
     ),
 
@@ -1419,10 +1433,11 @@ module.exports = grammar({
       $.super,
       $.crate,
       $.identifier,
-      $.scoped_identifier
+      $.scoped_identifier,
+      $._reserved_identifier,
     ),
 
-    identifier: $ => /(r#)?[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
+    identifier: $ => /(r#)?[_\p{XID_Start}][_\p{XID_Continue}]*/,
 
     _reserved_identifier: $ => alias(choice(
       'default',
@@ -1435,7 +1450,7 @@ module.exports = grammar({
     self: $ => 'self',
     super: $ => 'super',
     crate: $ => 'crate',
-
+    
     metavariable: $ => /\$[a-zA-Z_]\w*/
   }
 })

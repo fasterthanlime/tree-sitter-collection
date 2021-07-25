@@ -36,7 +36,7 @@ fn main() {
     {
         let dir: PathBuf = [
             "vendor",
-            "tree-sitter-rust-40620bf4097cbc9cea79504d7e877865df43a19e",
+            "tree-sitter-rust-a360da0a29a19c281d08295a35ecd0544d2da211",
             "src",
         ]
         .iter()
