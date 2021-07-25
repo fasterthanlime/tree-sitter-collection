@@ -53,7 +53,7 @@ pub fn javascript() -> Result<HighlightConfiguration, QueryError> {
 pub fn java() -> Result<HighlightConfiguration, QueryError> {
     HighlightConfiguration::new(
         unsafe { tree_sitter_java() },
-        include_str!("../vendor/tree-sitter-java-d8703b9e34425f2d0adb2838fa0381ab7f11d9da/queries/highlights.scm"),
+        include_str!("../vendor/tree-sitter-java-2efe37f92d2e6aeb25186e9da07455bb4a30163c/queries/highlights.scm"),
         "",
         "",
     )
